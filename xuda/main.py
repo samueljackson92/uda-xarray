@@ -1,3 +1,5 @@
+"""Xarray UDA backend entrypoint."""
+
 import pyuda
 import xarray as xr
 from xarray.backends import BackendEntrypoint
@@ -11,8 +13,6 @@ class UDABackendEntrypoint(BackendEntrypoint):
         filename_or_obj,
         *,
         drop_variables=None,
-        # other backend specific keyword arguments
-        # `chunks` and `cache` DO NOT go here, they are handled by xarray
     ) -> xr.Dataset:
         """Open a UDA dataset given a signal name and shot number."""
         name, shot = filename_or_obj.rsplit(":", maxsplit=1)

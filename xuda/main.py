@@ -22,6 +22,7 @@ class UDABackendEntrypoint(BackendEntrypoint):
         client = pyuda.Client()
         try:
             signal = client.get(name, shot)
+        # pylint: disable=c-extension-no-member
         except (pyuda.ServerException, pyuda.cpyuda.ClientException) as e:
             raise RuntimeError(f"Could not open UDA dataset {filename_or_obj}") from e
 
@@ -32,14 +33,13 @@ class UDABackendEntrypoint(BackendEntrypoint):
             signal.data,
             dims=["time"],
             coords={"time": signal.time.data},
-            attrs=dict(units=signal.units, uda_name=name),
+            attrs={"units": signal.units, "uda_name": name},
         )
 
         error = xr.DataArray(
             signal.errors.data,
             dims=["time"],
             coords={"time": signal.time.data},
-            attrs=dict(units=signal.units, uda_name=name),
         )
 
         return xr.Dataset(data_vars={"data": item, "error": error})

@@ -25,6 +25,9 @@ class UDABackendEntrypoint(BackendEntrypoint):
         except (pyuda.ServerException, pyuda.cpyuda.ClientException) as e:
             raise RuntimeError(f"Could not open UDA dataset {filename_or_obj}") from e
 
+        if len(signal.shape) > 1:
+            raise NotImplementedError("UDA backend currently only supports 1D signals")
+
         item = xr.DataArray(
             signal.data,
             dims=["time"],

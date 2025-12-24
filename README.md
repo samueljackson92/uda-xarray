@@ -111,11 +111,3 @@ Contributions are welcome! Please ensure:
 ## License
 
 MIT License
-
-## Maintainer
-
-Samuel Jackson (samuel.jackson@ukaea.uk)
-
-## Links
-
-- [Repository](https://github.com/samueljackson92/tokamak-events)

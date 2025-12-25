@@ -16,6 +16,7 @@ def test_open_uda_dataset(mocker):
     mock_signal.units = "A"
     mock_signal.time = Mock()
     mock_signal.time.data = np.array([0.0, 1.0, 2.0])
+    mock_signal.time.label = "time"
     mock_signal.errors = Mock()
     mock_signal.errors.data = np.array([0.1, 0.1, 0.1])
 
@@ -53,6 +54,7 @@ def test_open_uda_dataset_2d(mocker):
     mock_signal.errors.data = np.array([[0.1, 0.1], [0.1, 0.1]])
     mock_signal.time = Mock()
     mock_signal.time.data = np.array([0.0, 1.0])
+    mock_signal.time.label = "time"
 
     # Mock the pyuda Client
     mock_client = Mock()
@@ -61,8 +63,12 @@ def test_open_uda_dataset_2d(mocker):
 
     ds = xr.open_dataset("uda://AYE_TE:30421", engine="uda")
 
-    # mock_client.get.assert_called_once_with("AYE_TE", 30421)
-    print(ds)
+    mock_client.get.assert_called_once_with("AYE_TE", 30421)
+
+    assert ds["data"].name == "data"
+    assert ds["data"].dims == ("channel", "time")
+    assert "time" in ds.coords
+    assert "channel" in ds.coords
 
 
 def test_open_uda_dataset_invalid_signal(mocker):

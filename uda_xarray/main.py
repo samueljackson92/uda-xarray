@@ -27,6 +27,11 @@ class UDABackendEntrypoint(BackendEntrypoint):
             raise RuntimeError(f"Could not open UDA dataset {filename_or_obj}") from e
 
         dim_data = {dim.label: dim.data for dim in signal.dims}
+
+        # Rename time dimension to just "time" if we can.
+        if signal.time.label in dim_data:
+            dim_data["time"] = dim_data.pop(signal.time.label)
+
         item = xr.DataArray(
             signal.data,
             coords=dim_data,
@@ -37,9 +42,9 @@ class UDABackendEntrypoint(BackendEntrypoint):
             signal.errors.data,
             coords=dim_data,
         )
-        print(item, error)
 
-        return xr.Dataset(data_vars={"data": item, "error": error})
+        dataset = xr.Dataset(data_vars={"data": item, "error": error})
+        return dataset
 
     def open_datatree(self, filename_or_obj, *, drop_variables=None):
         raise NotImplementedError("UDA backend does not support open_datatree")

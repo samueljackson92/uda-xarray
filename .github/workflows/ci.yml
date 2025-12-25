@@ -65,4 +65,31 @@ jobs:
       - name: Run Pylint
         run: uv run pylint uda_xarray
 
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    strategy:
+      matrix:
+        python-version: [3.11]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install dependencies (with dev extras)
+        run: uv sync
+
+      - name: Run pytest
+        run: uv run pytest tests/ -v
+
     

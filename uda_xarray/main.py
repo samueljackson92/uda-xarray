@@ -26,21 +26,18 @@ class UDABackendEntrypoint(BackendEntrypoint):
         except (pyuda.ServerException, pyuda.cpyuda.ClientException) as e:
             raise RuntimeError(f"Could not open UDA dataset {filename_or_obj}") from e
 
-        if len(signal.shape) > 1:
-            raise NotImplementedError("UDA backend currently only supports 1D signals")
-
+        dim_data = {dim.label: dim.data for dim in signal.dims}
         item = xr.DataArray(
             signal.data,
-            dims=["time"],
-            coords={"time": signal.time.data},
+            coords=dim_data,
             attrs={"units": signal.units, "uda_name": name},
         )
 
         error = xr.DataArray(
             signal.errors.data,
-            dims=["time"],
-            coords={"time": signal.time.data, "units": signal.time.units},
+            coords=dim_data,
         )
+        print(item, error)
 
         return xr.Dataset(data_vars={"data": item, "error": error})
 
@@ -54,4 +51,4 @@ class UDABackendEntrypoint(BackendEntrypoint):
 
     description = "Use UDA data in Xarray"
 
-    url = "https://link_to/your_backend/documentation"
+    url = "https://github.com/samueljackson92/uda-xarray"

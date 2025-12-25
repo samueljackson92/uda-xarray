@@ -1,28 +1,28 @@
-# xuda
+# uda-xarray
 
-An xarray interface for UDA (Universal Data Access) that enables seamless integration of UDA data sources with the xarray ecosystem.
+An xarray backend for UDA (Universal Data Access) that enables seamless integration of UDA data sources with the xarray ecosystem.
 
 ## Overview
 
-xuda provides a backend plugin for xarray that allows you to access UDA data sources using xarray's familiar API. It automatically handles the conversion of UDA signals to xarray DataArrays and Datasets, making it easy to work with UDA data in scientific Python workflows.
+uda-xarray provides a backend plugin for xarray that allows you to access UDA data sources using xarray's familiar API. It automatically handles the conversion of UDA signals to xarray DataArrays and Datasets, making it easy to work with UDA data in scientific Python workflows.
 
 ## Features
 
 - **xarray Integration**: Access UDA data using xarray's `open_dataset` function
 - **Automatic Conversion**: Converts UDA signals to xarray DataArrays with proper coordinates and metadata
 - **Error Handling**: Includes error data alongside signal data
-- **URI-based Access**: Simple URI scheme (`uda://signal:shot`) for accessing data
+- **URI-based Access**: Simple URI scheme (`uda://signal_name:shot`) for accessing data
 
-## Installation
+## Installation 
 
 ```bash
-pip install xuda
+pip install uda-xarray
 ```
 
-Or using uv:
+Or using `uv`:
 
 ```bash
-uv pip install xuda
+uv pip install uda-xarray
 ```
 
 ## Usage
@@ -51,7 +51,7 @@ The URI format is: `uda://<signal_name>:<shot_number>`
 
 ## Data Structure
 
-When you open a UDA dataset, xuda creates an xarray Dataset with:
+When you open a UDA dataset, uda-xarray creates an xarray Dataset with:
 
 - **data**: The signal data as a DataArray
 - **error**: The error data as a DataArray
@@ -76,8 +76,8 @@ When you open a UDA dataset, xuda creates an xarray Dataset with:
 Clone the repository and install development dependencies:
 
 ```bash
-git clone https://github.com/samueljackson92/tokamak-events.git
-cd xuda
+git clone https://github.com/samueljackson92/uda-xarray.git
+cd uda-xarray
 uv sync
 ```
 
@@ -93,11 +93,11 @@ The project uses ruff for linting and formatting, and pylint for additional chec
 
 ```bash
 # Run ruff
-uv run ruff check xuda tests
-uv run ruff format xuda tests
+uv run ruff check uda_xarray tests
+uv run ruff format uda_xarray tests
 
 # Run pylint
-uv run pylint xuda
+uv run pylint uda_xarray
 ```
 
 ## Contributing

@@ -33,7 +33,7 @@ jobs:
         run: uv sync
 
       - name: Run Ruff
-        run: uv run ruff check xuda tests --ignore=C901 && uv run ruff format --check xuda tests  
+        run: uv run ruff check uda_xarray tests --ignore=C901 && uv run ruff format --check uda_xarray tests  
 
   pylint:
     name: Pylint
@@ -63,6 +63,6 @@ jobs:
         run: uv pip install pylint
 
       - name: Run Pylint
-        run: uv run pylint xuda
+        run: uv run pylint uda_xarray
 
     

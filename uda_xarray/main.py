@@ -39,7 +39,7 @@ class UDABackendEntrypoint(BackendEntrypoint):
         error = xr.DataArray(
             signal.errors.data,
             dims=["time"],
-            coords={"time": signal.time.data},
+            coords={"time": signal.time.data, "units": signal.time.units},
         )
 
         return xr.Dataset(data_vars={"data": item, "error": error})

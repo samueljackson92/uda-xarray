@@ -15,6 +15,15 @@ class UDABackendEntrypoint(BackendEntrypoint):
         drop_variables=None,
     ) -> xr.Dataset:
         """Open a UDA dataset given a signal name and shot number."""
+
+        if ":" not in filename_or_obj:
+            raise ValueError(
+                "UDA dataset must be specified as uda://<signal_name>:<shot_number>"
+            )
+
+        if "uda://" not in filename_or_obj:
+            raise ValueError("UDA dataset must start with the uda:// scheme")
+
         name, shot = filename_or_obj.rsplit(":", maxsplit=1)
         name = name.replace("uda://", "")
         shot = int(shot)

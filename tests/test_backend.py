@@ -83,3 +83,22 @@ def test_open_uda_dataset_invalid_signal(mocker):
         assert "Could not open UDA dataset" in str(e)
     else:
         assert False, "Expected RuntimeError was not raised"
+
+
+def test_open_uda_dataset_invalid_format():
+    try:
+        xr.open_dataset("invalid_format", engine="uda")
+    except ValueError as e:
+        assert (
+            "UDA dataset must be specified as uda://<signal_name>:<shot_number>"
+            in str(e)
+        )
+    else:
+        assert False, "Expected ValueError was not raised"
+
+    try:
+        xr.open_dataset("http://invalid_scheme:12345", engine="uda")
+    except ValueError as e:
+        assert "UDA dataset must start with the uda:// scheme" in str(e)
+    else:
+        assert False, "Expected ValueError was not raised"

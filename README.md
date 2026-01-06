@@ -58,11 +58,6 @@ When you open a UDA dataset, uda-xarray creates an xarray Dataset with:
 - **time**: Time coordinates (dimension)
 - **attrs**: Metadata including units and UDA signal name
 
-## Limitations
-
-- Currently only supports 1D signals (2D signals will raise `NotImplementedError`)
-- Requires a working UDA client connection
-
 ## Requirements
 
 - Python >= 3.11, < 3.13

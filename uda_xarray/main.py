@@ -152,7 +152,12 @@ class UDABackendEntrypoint(BackendEntrypoint):
         return SignalType.SIGNAL
 
     def open_datatree(self, filename_or_obj, *, drop_variables=None):
-        raise NotImplementedError("UDA backend does not support open_datatree")
+        dataset = self.open_dataset(filename_or_obj, drop_variables=drop_variables)
+        return xr.DataTree(dataset)
+
+    def open_groups_as_dict(self, filename_or_obj, **kwargs):
+        """Open groups as a dictionary (not supported for UDA backend)."""
+        raise NotImplementedError("UDA backend does not support opening groups")
 
     open_dataset_parameters = ["filename_or_obj", "drop_variables"]
 

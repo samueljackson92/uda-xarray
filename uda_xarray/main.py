@@ -160,6 +160,7 @@ class UDABackendEntrypoint(BackendEntrypoint):
         raise NotImplementedError("UDA backend does not support opening groups")
 
     open_dataset_parameters = ["filename_or_obj", "drop_variables"]
+    supports_groups = True
 
     def guess_can_open(self, filename_or_obj):
         return filename_or_obj.startswith("uda://")

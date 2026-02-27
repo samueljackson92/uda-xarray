@@ -275,6 +275,7 @@ def test_open_datatree_video(mocker):
     assert ds.sizes["time"] == 3
 
 
+@pytest.mark.skip(reason="Requires access to real UDA server with video data")
 def test_open_uda_dataset_video_frame(mocker):
     ds = xr.open_dataset(
         "uda://rba:30421", engine="uda", drop_variables=None, frame_number=1

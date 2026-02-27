@@ -3,11 +3,21 @@
 from enum import Enum
 from typing import Optional
 
+import os
 import numpy as np
 import pyuda
 import xarray as xr
 from mast.mast_client import ListType
 from xarray.backends import BackendEntrypoint
+
+
+# Set up UDA environment variables with defaults if not already set. This is required for
+# the pyuda client to work correctly outside of Freia.
+os.environ["UDA_HOST"] = os.environ.get("UDA_HOST", "uda2.mast.l")
+os.environ["UDA_META_PLUGINNAME"] = os.environ.get("UDA_META_PLUGINNAME", "MASTU_DB")
+os.environ["UDA_METANEW_PLUGINNAME"] = os.environ.get(
+    "UDA_METANEW_PLUGINNAME", "MAST_DB"
+)
 
 
 class SignalType(str, Enum):
@@ -82,9 +92,6 @@ class UDABackendEntrypoint(BackendEntrypoint):
         # Rename time dimension to just "time" if we can.
         if signal.time.label in dim_data:
             dim_data = {"time": dim_data.pop(signal.time.label), **dim_data}
-
-        print(dim_data)
-        print(signal.data.shape)
 
         item = xr.DataArray(
             signal.data,

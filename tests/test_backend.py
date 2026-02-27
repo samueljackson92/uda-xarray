@@ -1,3 +1,4 @@
+import pytest
 import xarray as xr
 import numpy as np
 import pyuda
@@ -74,7 +75,7 @@ def test_open_uda_dataset_2d(mocker):
     mock_client.get.assert_called_once_with("AYE_TE", 30421)
 
     assert ds["data"].name == "data"
-    assert ds["data"].dims == ("channel", "time")
+    assert ds["data"].dims == ("time", "channel")
     assert "time" in ds.coords
     assert "channel" in ds.coords
 
@@ -229,7 +230,7 @@ def test_open_datatree_2d(mocker):
     # Access the dataset from the root node
     ds = dt.to_dataset()
     assert ds["data"].name == "data"
-    assert ds["data"].dims == ("channel", "time")
+    assert ds["data"].dims == ("time", "channel")
     assert "time" in ds.coords
     assert "channel" in ds.coords
 
@@ -272,3 +273,22 @@ def test_open_datatree_video(mocker):
     assert ds["data"].dims == ("time", "height", "width")
     assert "time" in ds.coords
     assert ds.sizes["time"] == 3
+
+
+def test_open_uda_dataset_video_frame(mocker):
+    ds = xr.open_dataset(
+        "uda://rba:30421", engine="uda", drop_variables=None, frame_number=1
+    )
+    assert ds["data"].name == "data"
+    assert ds["data"].dims == ("time", "height", "width")
+    assert "time" in ds.coords
+    assert ds.sizes["time"] == 1
+
+
+@pytest.mark.skip(reason="Requires access to real UDA server with video data")
+def test_real_data_2d():
+    ds = xr.open_dataset("uda://AYE_TE:30421", engine="uda")
+    assert ds["data"].name == "data"
+    assert ds["data"].dims == ("time", "radial_index")
+    assert "time" in ds.coords
+    assert "radial_index" in ds.coords

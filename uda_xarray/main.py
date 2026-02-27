@@ -81,7 +81,10 @@ class UDABackendEntrypoint(BackendEntrypoint):
 
         # Rename time dimension to just "time" if we can.
         if signal.time.label in dim_data:
-            dim_data["time"] = dim_data.pop(signal.time.label)
+            dim_data = {"time": dim_data.pop(signal.time.label), **dim_data}
+
+        print(dim_data)
+        print(signal.data.shape)
 
         item = xr.DataArray(
             signal.data,
@@ -159,7 +162,7 @@ class UDABackendEntrypoint(BackendEntrypoint):
         """Open groups as a dictionary (not supported for UDA backend)."""
         raise NotImplementedError("UDA backend does not support opening groups")
 
-    open_dataset_parameters = ["filename_or_obj", "drop_variables"]
+    open_dataset_parameters = ["filename_or_obj", "drop_variables", "frame_number"]
     supports_groups = True
 
     def guess_can_open(self, filename_or_obj):

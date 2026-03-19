@@ -40,6 +40,7 @@ class UDABackendEntrypoint(BackendEntrypoint):
         *,
         drop_variables=None,
         frame_number: Optional[int] = None,  # noqa: F821
+        **kwargs,
     ) -> xr.Dataset:
         """Open a UDA dataset given a signal name and shot number.
 
@@ -161,8 +162,10 @@ class UDABackendEntrypoint(BackendEntrypoint):
             return SignalType.IMAGE
         return SignalType.SIGNAL
 
-    def open_datatree(self, filename_or_obj, *, drop_variables=None):
-        dataset = self.open_dataset(filename_or_obj, drop_variables=drop_variables)
+    def open_datatree(self, filename_or_obj, *, drop_variables=None, **kwargs):
+        dataset = self.open_dataset(
+            filename_or_obj, drop_variables=drop_variables, **kwargs
+        )
         return xr.DataTree(dataset)
 
     def open_groups_as_dict(self, filename_or_obj, **kwargs):

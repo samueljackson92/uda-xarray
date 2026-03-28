@@ -2,7 +2,9 @@ import pytest
 import xarray as xr
 import numpy as np
 import pyuda
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
+
+from uda_xarray.mappings import SignalMappings, SignalRange
 
 
 def test_open_uda_dataset(mocker):
@@ -293,3 +295,198 @@ def test_real_data_2d():
     assert ds["data"].dims == ("time", "radial_index")
     assert "time" in ds.coords
     assert "radial_index" in ds.coords
+
+
+def test_remapped_signal_uses_legacy_name(mocker):
+    """Requesting a canonical signal name for an old shot should transparently
+    remap it to the legacy stored name before calling the UDA client."""
+
+    # Build a minimal in-memory mapping:
+    #   canonical "AYC_TE" -> "AYC_TE" for shots 22832-30471
+    #                       -> "ATM_TE" for shots 1-22831
+    fake_mappings = SignalMappings(
+        mappings={
+            "AYC_TE": [
+                SignalRange(shot_min=22832, shot_max=30471, name="AYC_TE"),
+                SignalRange(shot_min=1, shot_max=22831, name="ATM_TE"),
+            ]
+        }
+    )
+    mocker.patch("uda_xarray.main._MAPPINGS", fake_mappings)
+
+    mock_signal = Mock()
+    mock_signal.data = np.array([1.0, 2.0, 3.0])
+    mock_signal.shape = (3,)
+    dim1 = Mock(label="time")
+    dim1.data = np.array([0.0, 1.0, 2.0])
+    mock_signal.dims = [dim1]
+    mock_signal.units = "eV"
+    mock_signal.time = Mock(label="time", data=np.array([0.0, 1.0, 2.0]))
+    mock_signal.errors = Mock(data=np.array([0.01, 0.01, 0.01]))
+
+    mock_client = Mock()
+    mock_client.get.return_value = mock_signal
+    mocker.patch("pyuda.Client", return_value=mock_client)
+    mocker.patch(
+        "uda_xarray.main.UDABackendEntrypoint._get_signal_type",
+        return_value="Signal",
+    )
+
+    # Shot 15000 is in the legacy range -> should call client with "ATM_TE"
+    ds = xr.open_dataset("uda://AYC_TE:15000", engine="uda")
+
+    mock_client.get.assert_called_once_with("ATM_TE", 15000)
+    assert ds["data"].attrs["uda_name"] == "ATM_TE"
+
+
+def test_remapped_signal_uses_modern_name(mocker):
+    """Requesting a canonical signal name for a recent shot should keep the
+    modern stored name."""
+
+    fake_mappings = SignalMappings(
+        mappings={
+            "AYC_TE": [
+                SignalRange(shot_min=22832, shot_max=30471, name="AYC_TE"),
+                SignalRange(shot_min=1, shot_max=22831, name="ATM_TE"),
+            ]
+        }
+    )
+    mocker.patch("uda_xarray.main._MAPPINGS", fake_mappings)
+
+    mock_signal = Mock()
+    mock_signal.data = np.array([1.0, 2.0, 3.0])
+    mock_signal.shape = (3,)
+    dim1 = Mock(label="time")
+    dim1.data = np.array([0.0, 1.0, 2.0])
+    mock_signal.dims = [dim1]
+    mock_signal.units = "eV"
+    mock_signal.time = Mock(label="time", data=np.array([0.0, 1.0, 2.0]))
+    mock_signal.errors = Mock(data=np.array([0.01, 0.01, 0.01]))
+
+    mock_client = Mock()
+    mock_client.get.return_value = mock_signal
+    mocker.patch("pyuda.Client", return_value=mock_client)
+    mocker.patch(
+        "uda_xarray.main.UDABackendEntrypoint._get_signal_type",
+        return_value="Signal",
+    )
+
+    # Shot 30000 is in the modern range -> should call client with "AYC_TE"
+    ds = xr.open_dataset("uda://AYC_TE:30000", engine="uda")
+
+    mock_client.get.assert_called_once_with("AYC_TE", 30000)
+    assert ds["data"].attrs["uda_name"] == "AYC_TE"
+
+
+def test_mastu_hcam_remapped_to_sanx_name(mocker):
+    """For a MASTU shot in the SAnx05 range, the canonical HCAM channel name
+    should be remapped to the SAnx05 digitiser path."""
+
+    # /XSX/HCAM/L/CH01/DATA is the canonical name; for shots 46353-49476 the
+    # data was stored as /xsx/SAnx05-01/ch14.
+    fake_mappings = SignalMappings(
+        mappings={
+            "/XSX/HCAM/L/CH01/DATA": [
+                SignalRange(shot_min=49904, shot_max=51056, name="/XSX/HCAM/L/CH01/DATA"),
+                SignalRange(shot_min=49476, shot_max=49904, name="/XSX/HCAM/L/CH01"),
+                SignalRange(shot_min=46353, shot_max=49476, name="/xsx/SAnx05-01/ch14"),
+                SignalRange(shot_min=44395, shot_max=46353, name="/XSX/HCAM/L/CH01"),
+            ]
+        }
+    )
+    mocker.patch("uda_xarray.main._MAPPINGS", fake_mappings)
+
+    mock_signal = Mock()
+    mock_signal.data = np.array([1.0, 2.0, 3.0])
+    mock_signal.shape = (3,)
+    dim1 = Mock(label="time")
+    dim1.data = np.array([0.0, 1.0, 2.0])
+    mock_signal.dims = [dim1]
+    mock_signal.units = "V"
+    mock_signal.time = Mock(label="time", data=np.array([0.0, 1.0, 2.0]))
+    mock_signal.errors = Mock(data=np.array([0.01, 0.01, 0.01]))
+
+    mock_client = Mock()
+    mock_client.get.return_value = mock_signal
+    mocker.patch("pyuda.Client", return_value=mock_client)
+    mocker.patch(
+        "uda_xarray.main.UDABackendEntrypoint._get_signal_type",
+        return_value="Signal",
+    )
+
+    # Shot 47000 falls in the SAnx05 range -> should call client with ch14 path
+    ds = xr.open_dataset("uda:///XSX/HCAM/L/CH01/DATA:47000", engine="uda")
+
+    mock_client.get.assert_called_once_with("/xsx/SAnx05-01/ch14", 47000)
+    assert ds["data"].attrs["uda_name"] == "/xsx/SAnx05-01/ch14"
+
+
+def test_mastu_hcam_modern_name_passthrough(mocker):
+    """For the most-recent MASTU shot range, the canonical HCAM channel name
+    should be used unchanged (it already matches the stored path)."""
+
+    fake_mappings = SignalMappings(
+        mappings={
+            "/XSX/HCAM/L/CH01/DATA": [
+                SignalRange(shot_min=49904, shot_max=51056, name="/XSX/HCAM/L/CH01/DATA"),
+                SignalRange(shot_min=49476, shot_max=49904, name="/XSX/HCAM/L/CH01"),
+                SignalRange(shot_min=46353, shot_max=49476, name="/xsx/SAnx05-01/ch14"),
+                SignalRange(shot_min=44395, shot_max=46353, name="/XSX/HCAM/L/CH01"),
+            ]
+        }
+    )
+    mocker.patch("uda_xarray.main._MAPPINGS", fake_mappings)
+
+    mock_signal = Mock()
+    mock_signal.data = np.array([1.0, 2.0, 3.0])
+    mock_signal.shape = (3,)
+    dim1 = Mock(label="time")
+    dim1.data = np.array([0.0, 1.0, 2.0])
+    mock_signal.dims = [dim1]
+    mock_signal.units = "V"
+    mock_signal.time = Mock(label="time", data=np.array([0.0, 1.0, 2.0]))
+    mock_signal.errors = Mock(data=np.array([0.01, 0.01, 0.01]))
+
+    mock_client = Mock()
+    mock_client.get.return_value = mock_signal
+    mocker.patch("pyuda.Client", return_value=mock_client)
+    mocker.patch(
+        "uda_xarray.main.UDABackendEntrypoint._get_signal_type",
+        return_value="Signal",
+    )
+
+    # Shot 50000 is in the most-recent range -> canonical name used as-is
+    ds = xr.open_dataset("uda:///XSX/HCAM/L/CH01/DATA:50000", engine="uda")
+
+    mock_client.get.assert_called_once_with("/XSX/HCAM/L/CH01/DATA", 50000)
+    assert ds["data"].attrs["uda_name"] == "/XSX/HCAM/L/CH01/DATA"
+
+
+def test_unmapped_signal_passes_through(mocker):
+    """A signal not present in the mappings should be forwarded as-is."""
+
+    fake_mappings = SignalMappings(mappings={})
+    mocker.patch("uda_xarray.main._MAPPINGS", fake_mappings)
+
+    mock_signal = Mock()
+    mock_signal.data = np.array([1.0, 2.0])
+    mock_signal.shape = (2,)
+    dim1 = Mock(label="time")
+    dim1.data = np.array([0.0, 1.0])
+    mock_signal.dims = [dim1]
+    mock_signal.units = "A"
+    mock_signal.time = Mock(label="time", data=np.array([0.0, 1.0]))
+    mock_signal.errors = Mock(data=np.array([0.1, 0.1]))
+
+    mock_client = Mock()
+    mock_client.get.return_value = mock_signal
+    mocker.patch("pyuda.Client", return_value=mock_client)
+    mocker.patch(
+        "uda_xarray.main.UDABackendEntrypoint._get_signal_type",
+        return_value="Signal",
+    )
+
+    ds = xr.open_dataset("uda://SOME_UNKNOWN_SIGNAL:30421", engine="uda")
+
+    mock_client.get.assert_called_once_with("SOME_UNKNOWN_SIGNAL", 30421)
+    assert ds["data"].attrs["uda_name"] == "SOME_UNKNOWN_SIGNAL"

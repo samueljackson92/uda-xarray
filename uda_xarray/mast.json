@@ -1,0 +1,356 @@
+{
+    "/xdc/ip/t/ipref": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/ip/t/ipref"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_IP_T_IPREF"}
+    ],
+
+    "/xdc/density/t/nelref": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/density/t/nelref"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_DENSITY_T_NELREF"}
+    ],
+
+    "/xdc/gas/t/g1": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/t/g1"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_GAS_T_G1"}
+    ],
+    "/xdc/gas/t/g2": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/t/g2"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_GAS_T_G2"}
+    ],
+    "/xdc/gas/t/g3": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/t/g3"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_GAS_T_G3"}
+    ],
+    "/xdc/gas/t/g4": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/t/g4"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_GAS_T_G4"}
+    ],
+    "/xdc/gas/t/g5": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/t/g5"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_GAS_T_G5"}
+    ],
+    "/xdc/gas/t/g6": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/t/g6"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_GAS_T_G6"}
+    ],
+    "/xdc/gas/t/g7": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/t/g7"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_GAS_T_G7"}
+    ],
+    "/xdc/gas/t/g8": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/t/g8"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_GAS_T_G8"}
+    ],
+    "/xdc/gas/t/g9": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/t/g9"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_GAS_T_G9"}
+    ],
+    "/xdc/gas/t/g10": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/t/g10"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_GAS_T_G10"}
+    ],
+    "/xdc/gas/t/g11": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/t/g11"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_GAS_T_G11"}
+    ],
+    "/xdc/gas/t/g12": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/t/g12"},
+        {"shot_min": 1,     "shot_max": 28355, "name": "XDC_GAS_T_G12"}
+    ],
+
+    "/xdc/gas/f/tc5a": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/tc5a"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_TC5A"}
+    ],
+    "/xdc/gas/f/tc5b": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/tc5b"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_TC5B"}
+    ],
+    "/xdc/gas/f/tc11": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/tc11"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_TC11"}
+    ],
+    "/xdc/gas/f/bc5": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/bc5"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_BC5"}
+    ],
+    "/xdc/gas/f/hl1": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/hl1"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_HL1"}
+    ],
+    "/xdc/gas/f/hu6": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/hu6"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_HU6"}
+    ],
+    "/xdc/gas/f/hu8": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/hu8"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_HU8"}
+    ],
+    "/xdc/gas/f/hu11": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/hu11"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_HU11"}
+    ],
+    "/xdc/gas/f/hl11": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/hl11"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_HL11"}
+    ],
+    "/xdc/gas/f/bc11": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/bc11"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_BC11"}
+    ],
+    "/xdc/gas/f/hecc": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/hecc"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_HECC"}
+    ],
+    "/xdc/gas/f/heoa": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/heoa"},
+        {"shot_min": 25912, "shot_max": 26755, "name": "XDC_GAS_F_HEOA"}
+    ],
+    "/xdc/gas/f/heob": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/heob"},
+        {"shot_min": 25912, "shot_max": 26755, "name": "XDC_GAS_F_HEOB"}
+    ],
+    "/xdc/gas/f/hm12a": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/hm12a"},
+        {"shot_min": 26756, "shot_max": 28355, "name": "XDC_GAS_F_HM12A"}
+    ],
+    "/xdc/gas/f/hm12b": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/hm12b"},
+        {"shot_min": 26756, "shot_max": 28355, "name": "XDC_GAS_F_HM12B"}
+    ],
+    "XDC_GAS_F_HM12": [
+        {"shot_min": 25912, "shot_max": 26755, "name": "XDC_GAS_F_HM12"}
+    ],
+    "/xdc/gas/f/ibil": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/ibil"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_IBIL"}
+    ],
+    "/xdc/gas/f/ibfua": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/ibfua"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_IBFUA"}
+    ],
+    "/xdc/gas/f/ibfub": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/ibfub"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_IBFUB"}
+    ],
+    "/xdc/gas/f/ibfla": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/ibfla"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_IBFLA"}
+    ],
+    "/xdc/gas/f/ibflb": [
+        {"shot_min": 28356, "shot_max": 30471, "name": "/xdc/gas/f/ibflb"},
+        {"shot_min": 25912, "shot_max": 28355, "name": "XDC_GAS_F_IBFLB"}
+    ],
+    "XDC_GAS_F_G1":  [{"shot_min": 1, "shot_max": 25911, "name": "XDC_GAS_F_G1"}],
+    "XDC_GAS_F_G2":  [{"shot_min": 1, "shot_max": 25911, "name": "XDC_GAS_F_G2"}],
+    "XDC_GAS_F_G3":  [{"shot_min": 1, "shot_max": 25911, "name": "XDC_GAS_F_G3"}],
+    "XDC_GAS_F_G4":  [{"shot_min": 1, "shot_max": 25911, "name": "XDC_GAS_F_G4"}],
+    "XDC_GAS_F_G5":  [{"shot_min": 1, "shot_max": 25911, "name": "XDC_GAS_F_G5"}],
+    "XDC_GAS_F_G6":  [{"shot_min": 1, "shot_max": 25911, "name": "XDC_GAS_F_G6"}],
+    "XDC_GAS_F_G7":  [{"shot_min": 1, "shot_max": 25911, "name": "XDC_GAS_F_G7"}],
+    "XDC_GAS_F_G8":  [{"shot_min": 1, "shot_max": 25911, "name": "XDC_GAS_F_G8"}],
+    "XDC_GAS_F_G9":  [{"shot_min": 1, "shot_max": 25911, "name": "XDC_GAS_F_G9"}],
+    "XDC_GAS_F_G10": [{"shot_min": 1, "shot_max": 25911, "name": "XDC_GAS_F_G10"}],
+    "XDC_GAS_F_G11": [{"shot_min": 1, "shot_max": 25911, "name": "XDC_GAS_F_G11"}],
+    "XDC_GAS_F_G12": [{"shot_min": 1, "shot_max": 25911, "name": "XDC_GAS_F_G12"}],
+
+    "/xdc/pf/f/p1": [
+        {"shot_min": 28410, "shot_max": 30471, "name": "/xdc/pf/f/p1"},
+        {"shot_min": 11695, "shot_max": 28355, "name": "XDC_PF_F_P1"}
+    ],
+    "/xdc/pf/f/p2": [
+        {"shot_min": 28410, "shot_max": 30471, "name": "/xdc/pf/f/p2"},
+        {"shot_min": 11695, "shot_max": 28355, "name": "XDC_PF_F_P2"}
+    ],
+    "/xdc/pf/f/p4": [
+        {"shot_min": 28410, "shot_max": 30471, "name": "/xdc/pf/f/p4"},
+        {"shot_min": 11695, "shot_max": 28355, "name": "XDC_PF_F_P4"}
+    ],
+    "/xdc/pf/f/p5": [
+        {"shot_min": 28410, "shot_max": 30471, "name": "/xdc/pf/f/p5"},
+        {"shot_min": 11695, "shot_max": 28355, "name": "XDC_PF_F_P5"}
+    ],
+
+    "XMB/SAD/OUT/M01": [
+        {"shot_min": 27620, "shot_max": 30473, "name": "XMB/SAD/OUT/M01"},
+        {"shot_min": 11708, "shot_max": 27619, "name": "XMB_SAD/OUT/M01"}
+    ],
+    "XMB/SAD/OUT/M02": [
+        {"shot_min": 27620, "shot_max": 30473, "name": "XMB/SAD/OUT/M02"},
+        {"shot_min": 11708, "shot_max": 27619, "name": "XMB_SAD/OUT/M02"}
+    ],
+    "XMB/SAD/OUT/M03": [
+        {"shot_min": 27620, "shot_max": 30473, "name": "XMB/SAD/OUT/M03"},
+        {"shot_min": 11708, "shot_max": 27619, "name": "XMB_SAD/OUT/M03"}
+    ],
+    "XMB/SAD/OUT/M04": [
+        {"shot_min": 27620, "shot_max": 30473, "name": "XMB/SAD/OUT/M04"},
+        {"shot_min": 11708, "shot_max": 27619, "name": "XMB_SAD/OUT/M04"}
+    ],
+    "XMB/SAD/OUT/M05": [
+        {"shot_min": 27620, "shot_max": 30473, "name": "XMB/SAD/OUT/M05"},
+        {"shot_min": 11708, "shot_max": 27619, "name": "XMB_SAD/OUT/M05"}
+    ],
+    "XMB/SAD/OUT/M06": [
+        {"shot_min": 27620, "shot_max": 30473, "name": "XMB/SAD/OUT/M06"},
+        {"shot_min": 11708, "shot_max": 27619, "name": "XMB_SAD/OUT/M06"}
+    ],
+    "XMB/SAD/OUT/M07": [
+        {"shot_min": 27620, "shot_max": 30473, "name": "XMB/SAD/OUT/M07"},
+        {"shot_min": 11708, "shot_max": 27619, "name": "XMB_SAD/OUT/M07"}
+    ],
+    "XMB/SAD/OUT/M08": [
+        {"shot_min": 27620, "shot_max": 30473, "name": "XMB/SAD/OUT/M08"},
+        {"shot_min": 11708, "shot_max": 27619, "name": "XMB_SAD/OUT/M08"}
+    ],
+    "XMB/SAD/OUT/M09": [
+        {"shot_min": 27620, "shot_max": 30473, "name": "XMB/SAD/OUT/M09"},
+        {"shot_min": 11708, "shot_max": 27619, "name": "XMB_SAD/OUT/M09"}
+    ],
+    "XMB/SAD/OUT/M10": [
+        {"shot_min": 27620, "shot_max": 30473, "name": "XMB/SAD/OUT/M10"},
+        {"shot_min": 11708, "shot_max": 27619, "name": "XMB_SAD/OUT/M10"}
+    ],
+    "XMB/SAD/OUT/M11": [
+        {"shot_min": 27620, "shot_max": 30473, "name": "XMB/SAD/OUT/M11"},
+        {"shot_min": 11708, "shot_max": 27619, "name": "XMB_SAD/OUT/M11"}
+    ],
+    "XMB/SAD/OUT/M12": [
+        {"shot_min": 27620, "shot_max": 30473, "name": "XMB/SAD/OUT/M12"},
+        {"shot_min": 11708, "shot_max": 27619, "name": "XMB_SAD/OUT/M12"}
+    ],
+
+    "xmc/OMV/110": [
+        {"shot_min": 25736, "shot_max": 30471, "name": "xmc/OMV/110"},
+        {"shot_min": 1,     "shot_max": 25735, "name": "XMC_OMV/110"}
+    ],
+    "xmc/OMV/210": [
+        {"shot_min": 25736, "shot_max": 30471, "name": "xmc/OMV/210"},
+        {"shot_min": 1,     "shot_max": 25735, "name": "XMC_OMV/210"}
+    ],
+    "xmc/OMV/310": [
+        {"shot_min": 25736, "shot_max": 30471, "name": "xmc/OMV/310"},
+        {"shot_min": 1,     "shot_max": 25735, "name": "XMC_OMV/310"}
+    ],
+
+    "xmc/CC/MT/201": [
+        {"shot_min": 25736, "shot_max": 30471, "name": "xmc/CC/MT/201"},
+        {"shot_min": 1,     "shot_max": 25735, "name": "XMC_CC/MT/201"}
+    ],
+    "xmc/CC/MT/206": [
+        {"shot_min": 25736, "shot_max": 30471, "name": "xmc/CC/MT/206"},
+        {"shot_min": 1,     "shot_max": 25735, "name": "XMC_CC/MT/206"}
+    ],
+    "xmc/CC/MT/212": [
+        {"shot_min": 25736, "shot_max": 30471, "name": "xmc/CC/MT/212"},
+        {"shot_min": 1,     "shot_max": 25735, "name": "XMC_CC/MT/212"}
+    ],
+
+    "xmc/CC/MV/201": [
+        {"shot_min": 25736, "shot_max": 30471, "name": "xmc/CC/MV/201"},
+        {"shot_min": 1,     "shot_max": 25735, "name": "XMC_CC/MV/201"}
+    ],
+    "xmc/CC/MV/210": [
+        {"shot_min": 25736, "shot_max": 30471, "name": "xmc/CC/MV/210"},
+        {"shot_min": 1,     "shot_max": 25735, "name": "XMC_CC/MV/210"}
+    ],
+    "xmc/CC/MV/220": [
+        {"shot_min": 25736, "shot_max": 30471, "name": "xmc/CC/MV/220"},
+        {"shot_min": 1,     "shot_max": 25735, "name": "XMC_CC/MV/220"}
+    ],
+    "xmc/CC/MV/230": [
+        {"shot_min": 25736, "shot_max": 30471, "name": "xmc/CC/MV/230"},
+        {"shot_min": 1,     "shot_max": 25735, "name": "XMC_CC/MV/230"}
+    ],
+    "xmc/CC/MV/240": [
+        {"shot_min": 25736, "shot_max": 30471, "name": "xmc/CC/MV/240"},
+        {"shot_min": 1,     "shot_max": 25735, "name": "XMC_CC/MV/240"}
+    ],
+
+    "/xmo/OMAHA/1LZ": [{"shot_min": 26326, "shot_max": 30473, "name": "/xmo/OMAHA/1LZ"}],
+    "/xmo/OMAHA/3LZ": [{"shot_min": 26326, "shot_max": 30473, "name": "/xmo/OMAHA/3LZ"}],
+    "/xmo/OMAHA/5LZ": [{"shot_min": 26326, "shot_max": 30473, "name": "/xmo/OMAHA/5LZ"}],
+    "/xmo/OMAHA/6LZ": [{"shot_min": 26326, "shot_max": 30473, "name": "/xmo/OMAHA/6LZ"}],
+
+    "AYC_TE_CORE": [
+        {"shot_min": 22832, "shot_max": 30471, "name": "AYC_TE_CORE"},
+        {"shot_min": 1,     "shot_max": 22831, "name": "ATM_TE_CORE"}
+    ],
+    "AYC_NE_CORE": [
+        {"shot_min": 22832, "shot_max": 30471, "name": "AYC_NE_CORE"},
+        {"shot_min": 1,     "shot_max": 22831, "name": "ATM_NE_CORE"}
+    ],
+    "AYC_TE": [
+        {"shot_min": 22832, "shot_max": 30471, "name": "AYC_TE"},
+        {"shot_min": 1,     "shot_max": 22831, "name": "ATM_TE"}
+    ],
+    "AYC_NE": [
+        {"shot_min": 22832, "shot_max": 30471, "name": "AYC_NE"},
+        {"shot_min": 1,     "shot_max": 22831, "name": "ATM_NE"}
+    ],
+    "AYC_PE": [
+        {"shot_min": 22832, "shot_max": 30471, "name": "AYC_PE"},
+        {"shot_min": 1,     "shot_max": 22831, "name": "ATM_PE"}
+    ],
+    "AYC_R": [
+        {"shot_min": 22832, "shot_max": 30471, "name": "AYC_R"},
+        {"shot_min": 1,     "shot_max": 22831, "name": "ATM_R"}
+    ],
+
+    "/xsx/TCAM/1":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/1"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#1"}],
+    "/xsx/TCAM/2":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/2"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#2"}],
+    "/xsx/TCAM/3":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/3"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#3"}],
+    "/xsx/TCAM/4":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/4"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#4"}],
+    "/xsx/TCAM/5":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/5"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#5"}],
+    "/xsx/TCAM/6":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/6"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#6"}],
+    "/xsx/TCAM/7":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/7"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#7"}],
+    "/xsx/TCAM/8":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/8"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#8"}],
+    "/xsx/TCAM/9":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/9"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#9"}],
+    "/xsx/TCAM/10": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/10"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#10"}],
+    "/xsx/TCAM/11": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/11"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#11"}],
+    "/xsx/TCAM/12": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/12"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#12"}],
+    "/xsx/TCAM/13": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/13"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#13"}],
+    "/xsx/TCAM/14": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/14"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#14"}],
+    "/xsx/TCAM/15": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/15"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#15"}],
+    "/xsx/TCAM/16": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/16"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#16"}],
+    "/xsx/TCAM/17": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/17"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#17"}],
+    "/xsx/TCAM/18": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/TCAM/18"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_TCAM#18"}],
+
+    "/xsx/HCAM/L/1":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/1"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#1"}],
+    "/xsx/HCAM/L/2":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/2"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#2"}],
+    "/xsx/HCAM/L/3":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/3"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#3"}],
+    "/xsx/HCAM/L/4":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/4"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#4"}],
+    "/xsx/HCAM/L/5":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/5"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#5"}],
+    "/xsx/HCAM/L/6":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/6"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#6"}],
+    "/xsx/HCAM/L/7":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/7"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#7"}],
+    "/xsx/HCAM/L/8":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/8"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#8"}],
+    "/xsx/HCAM/L/9":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/9"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#9"}],
+    "/xsx/HCAM/L/10": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/10"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#10"}],
+    "/xsx/HCAM/L/11": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/11"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#11"}],
+    "/xsx/HCAM/L/12": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/12"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#12"}],
+    "/xsx/HCAM/L/13": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/13"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#13"}],
+    "/xsx/HCAM/L/14": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/14"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#14"}],
+    "/xsx/HCAM/L/15": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/15"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#15"}],
+    "/xsx/HCAM/L/16": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/16"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#16"}],
+    "/xsx/HCAM/L/17": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/17"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#17"}],
+    "/xsx/HCAM/L/18": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/L/18"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAML#18"}],
+
+    "/xsx/HCAM/U/1":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/1"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#1"}],
+    "/xsx/HCAM/U/2":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/2"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#2"}],
+    "/xsx/HCAM/U/3":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/3"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#3"}],
+    "/xsx/HCAM/U/4":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/4"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#4"}],
+    "/xsx/HCAM/U/5":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/5"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#5"}],
+    "/xsx/HCAM/U/6":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/6"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#6"}],
+    "/xsx/HCAM/U/7":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/7"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#7"}],
+    "/xsx/HCAM/U/8":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/8"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#8"}],
+    "/xsx/HCAM/U/9":  [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/9"},  {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#9"}],
+    "/xsx/HCAM/U/10": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/10"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#10"}],
+    "/xsx/HCAM/U/11": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/11"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#11"}],
+    "/xsx/HCAM/U/12": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/12"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#12"}],
+    "/xsx/HCAM/U/13": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/13"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#13"}],
+    "/xsx/HCAM/U/14": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/14"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#14"}],
+    "/xsx/HCAM/U/15": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/15"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#15"}],
+    "/xsx/HCAM/U/16": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/16"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#16"}],
+    "/xsx/HCAM/U/17": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/17"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#17"}],
+    "/xsx/HCAM/U/18": [{"shot_min": 25814, "shot_max": 30471, "name": "/xsx/HCAM/U/18"}, {"shot_min": 1, "shot_max": 25813, "name": "XSX_HCAMU#18"}]
+}

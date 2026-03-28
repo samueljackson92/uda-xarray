@@ -1,0 +1,618 @@
+{
+  "/XSX/HCAM/L/CH01/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH01/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH01"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch14"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH01"
+    }
+  ],
+  "/XSX/HCAM/L/CH02/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH02/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH02"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch13"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH02"
+    }
+  ],
+  "/XSX/HCAM/L/CH03/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH03/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH03"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch12"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH03"
+    }
+  ],
+  "/XSX/HCAM/L/CH04/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH04/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH04"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch11"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH04"
+    }
+  ],
+  "/XSX/HCAM/L/CH05/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH05/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH05"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch10"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH05"
+    }
+  ],
+  "/XSX/HCAM/L/CH06/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH06/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH06"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch09"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH06"
+    }
+  ],
+  "/XSX/HCAM/L/CH07/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH07/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH07"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch08"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH07"
+    }
+  ],
+  "/XSX/HCAM/L/CH08/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH08/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH08"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch07"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH08"
+    }
+  ],
+  "/XSX/HCAM/L/CH09/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH09/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH09"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch06"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH09"
+    }
+  ],
+  "/XSX/HCAM/L/CH10/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH10/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH10"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch05"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH10"
+    }
+  ],
+  "/XSX/HCAM/L/CH11/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH11/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH11"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch04"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH11"
+    }
+  ],
+  "/XSX/HCAM/L/CH12/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH12/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH12"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch03"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH12"
+    }
+  ],
+  "/XSX/HCAM/L/CH13/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH13/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH13"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch02"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH13"
+    }
+  ],
+  "/XSX/HCAM/L/CH14/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/L/CH14/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/L/CH14"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch01"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/L/CH14"
+    }
+  ],
+  "/XSX/HCAM/U/CH01/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH01/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH01"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch46"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH01"
+    }
+  ],
+  "/XSX/HCAM/U/CH02/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH02/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH02"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch45"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH02"
+    }
+  ],
+  "/XSX/HCAM/U/CH03/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH03/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH03"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch44"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH03"
+    }
+  ],
+  "/XSX/HCAM/U/CH04/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH04/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH04"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch43"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH04"
+    }
+  ],
+  "/XSX/HCAM/U/CH05/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH05/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH05"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch42"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH05"
+    }
+  ],
+  "/XSX/HCAM/U/CH06/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH06/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH06"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch41"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH06"
+    }
+  ],
+  "/XSX/HCAM/U/CH07/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH07/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH07"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch40"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH07"
+    }
+  ],
+  "/XSX/HCAM/U/CH08/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH08/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH08"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch39"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH08"
+    }
+  ],
+  "/XSX/HCAM/U/CH09/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH09/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH09"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch38"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH09"
+    }
+  ],
+  "/XSX/HCAM/U/CH10/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH10/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH10"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch37"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH10"
+    }
+  ],
+  "/XSX/HCAM/U/CH11/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH11/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH11"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch36"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH11"
+    }
+  ],
+  "/XSX/HCAM/U/CH12/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH12/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH12"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch35"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH12"
+    }
+  ],
+  "/XSX/HCAM/U/CH13/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH13/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH13"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch34"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH13"
+    }
+  ],
+  "/XSX/HCAM/U/CH14/DATA": [
+    {
+      "shot_min": 49904,
+      "shot_max": 51056,
+      "name": "/XSX/HCAM/U/CH14/DATA"
+    },
+    {
+      "shot_min": 49476,
+      "shot_max": 49904,
+      "name": "/XSX/HCAM/U/CH14"
+    },
+    {
+      "shot_min": 46353,
+      "shot_max": 49476,
+      "name": "/xsx/SAnx05-01/ch33"
+    },
+    {
+      "shot_min": 44395,
+      "shot_max": 46353,
+      "name": "/XSX/HCAM/U/CH14"
+    }
+  ]
+}

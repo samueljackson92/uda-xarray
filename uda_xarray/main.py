@@ -10,6 +10,10 @@ import xarray as xr
 from mast.mast_client import ListType
 from xarray.backends import BackendEntrypoint
 
+from uda_xarray.mappings import SignalMappings
+
+_MAPPINGS = SignalMappings.from_file()
+
 
 # Set up UDA environment variables with defaults if not already set. This is required for
 # the pyuda client to work correctly outside of Freia.
@@ -65,6 +69,8 @@ class UDABackendEntrypoint(BackendEntrypoint):
         name, shot = filename_or_obj.rsplit(":", maxsplit=1)
         name = name.replace("uda://", "")
         shot = int(shot)
+
+        name = _MAPPINGS.resolve(name, shot) or name
 
         client = pyuda.Client()
         signal_type = self._get_signal_type(client, name, shot)

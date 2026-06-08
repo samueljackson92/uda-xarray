@@ -1,13 +1,17 @@
-import pytest
-import xarray as xr
+"""Tests for the UDA xarray backend."""
+
+from unittest.mock import Mock
+
 import numpy as np
 import pyuda
-from unittest.mock import Mock, patch
+import pytest
+import xarray as xr
 
 from uda_xarray.mappings import SignalMappings, SignalRange
 
 
 def test_open_uda_dataset(mocker):
+    """Test loading a 1D UDA signal as an xarray Dataset."""
     # Create mock signal object
     mock_signal = Mock()
     mock_signal.data = np.array([1.0, 2.0, 3.0])
@@ -47,6 +51,7 @@ def test_open_uda_dataset(mocker):
 
 
 def test_open_uda_dataset_2d(mocker):
+    """Test loading a 2D UDA signal as an xarray Dataset."""
     # Create mock 2D signal object
     mock_signal = Mock()
     mock_signal.data = np.array([[1.0, 2.0], [3.0, 4.0]])
@@ -83,6 +88,7 @@ def test_open_uda_dataset_2d(mocker):
 
 
 def test_open_uda_dataset_video(mocker):
+    """Test loading a UDA video signal as an xarray Dataset."""
     mock_signal = Mock()
     mock_signal.is_color = False
     mock_signal.frame_times = np.array([0.0, 0.033, 0.066])
@@ -117,6 +123,7 @@ def test_open_uda_dataset_video(mocker):
 
 
 def test_open_uda_dataset_invalid_signal(mocker):
+    """Test that an invalid UDA signal raises a RuntimeError."""
     # Mock the pyuda Client to raise an exception
     mock_client = Mock()
     mock_client.get.side_effect = pyuda.ServerException("Signal not found")
@@ -135,6 +142,7 @@ def test_open_uda_dataset_invalid_signal(mocker):
 
 
 def test_open_uda_dataset_invalid_format():
+    """Test that an invalid UDA URL format raises a ValueError."""
     try:
         xr.open_dataset("invalid_format", engine="uda")
     except ValueError as e:
@@ -154,6 +162,7 @@ def test_open_uda_dataset_invalid_format():
 
 
 def test_open_datatree(mocker):
+    """Test loading a 1D UDA signal as an xarray DataTree."""
     # Create mock signal object
     mock_signal = Mock()
     mock_signal.data = np.array([1.0, 2.0, 3.0])
@@ -197,6 +206,7 @@ def test_open_datatree(mocker):
 
 
 def test_open_datatree_2d(mocker):
+    """Test loading a 2D UDA signal as an xarray DataTree."""
     # Create mock 2D signal object
     mock_signal = Mock()
     mock_signal.data = np.array([[1.0, 2.0], [3.0, 4.0]])
@@ -238,6 +248,7 @@ def test_open_datatree_2d(mocker):
 
 
 def test_open_datatree_video(mocker):
+    """Test loading a UDA video signal as an xarray DataTree."""
     mock_signal = Mock()
     mock_signal.is_color = False
     mock_signal.frame_times = np.array([0.0, 0.033, 0.066])
@@ -278,7 +289,8 @@ def test_open_datatree_video(mocker):
 
 
 @pytest.mark.skip(reason="Requires access to real UDA server with video data")
-def test_open_uda_dataset_video_frame(mocker):
+def test_open_uda_dataset_video_frame():
+    """Test loading a single video frame from a real UDA server."""
     ds = xr.open_dataset(
         "uda://rba:30421", engine="uda", drop_variables=None, frame_number=1
     )
@@ -290,6 +302,7 @@ def test_open_uda_dataset_video_frame(mocker):
 
 @pytest.mark.skip(reason="Requires access to real UDA server with video data")
 def test_real_data_2d():
+    """Test loading real 2D data from a live UDA server."""
     ds = xr.open_dataset("uda://AYE_TE:30421", engine="uda")
     assert ds["data"].name == "data"
     assert ds["data"].dims == ("time", "radial_index")

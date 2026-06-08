@@ -1,3 +1,5 @@
+"""Signal name mappings for the UDA xarray backend."""
+
 from __future__ import annotations
 
 import importlib.resources

@@ -400,7 +400,9 @@ def test_mastu_hcam_remapped_to_sanx_name(mocker):
     fake_mappings = SignalMappings(
         mappings={
             "/XSX/HCAM/L/CH01/DATA": [
-                SignalRange(shot_min=49904, shot_max=51056, name="/XSX/HCAM/L/CH01/DATA"),
+                SignalRange(
+                    shot_min=49904, shot_max=51056, name="/XSX/HCAM/L/CH01/DATA"
+                ),
                 SignalRange(shot_min=49476, shot_max=49904, name="/XSX/HCAM/L/CH01"),
                 SignalRange(shot_min=46353, shot_max=49476, name="/xsx/SAnx05-01/ch14"),
                 SignalRange(shot_min=44395, shot_max=46353, name="/XSX/HCAM/L/CH01"),
@@ -441,7 +443,9 @@ def test_mastu_hcam_modern_name_passthrough(mocker):
     fake_mappings = SignalMappings(
         mappings={
             "/XSX/HCAM/L/CH01/DATA": [
-                SignalRange(shot_min=49904, shot_max=51056, name="/XSX/HCAM/L/CH01/DATA"),
+                SignalRange(
+                    shot_min=49904, shot_max=51056, name="/XSX/HCAM/L/CH01/DATA"
+                ),
                 SignalRange(shot_min=49476, shot_max=49904, name="/XSX/HCAM/L/CH01"),
                 SignalRange(shot_min=46353, shot_max=49476, name="/xsx/SAnx05-01/ch14"),
                 SignalRange(shot_min=44395, shot_max=46353, name="/XSX/HCAM/L/CH01"),

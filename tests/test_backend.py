@@ -507,3 +507,28 @@ def test_unmapped_signal_passes_through(mocker):
 
     mock_client.get.assert_called_once_with("SOME_UNKNOWN_SIGNAL", 30421)
     assert ds["data"].attrs["uda_name"] == "SOME_UNKNOWN_SIGNAL"
+
+
+def test_resolve_ignores_case_and_leading_slash():
+    mappings = SignalMappings(
+        mappings={
+            "/ESM/VLOOP/DYNAMIC": [
+                SignalRange(shot_min=1, shot_max=10, name="/ESM/VLOOP_DYNAMIC")
+            ]
+        }
+    )
+    for name in ("/ESM/VLOOP/DYNAMIC", "esm/vloop/dynamic", "/esm/vloop/dynamic"):
+        assert mappings.resolve(name, 5) == "/ESM/VLOOP_DYNAMIC"
+    assert mappings.resolve("esm/vloop/dynamic", 11) is None
+
+
+def test_bundled_mastu_renames():
+    mappings = SignalMappings.from_file()
+    # Shot with only the old name in the catalogue.
+    assert mappings.resolve("esm/vloop/dynamic", 43477) == "/ESM/VLOOP_DYNAMIC"
+    assert mappings.resolve("esm/density/nebar", 43482) == "/ESM/NEBAR"
+    assert mappings.resolve("xdc/ai/cpu1/rogext_TF", 40240) == "/XDC/AI/CPU1/TF_CURRENT"
+    # Shots with the new name are not remapped.
+    assert mappings.resolve("esm/vloop/dynamic", 43478) is None
+    assert mappings.resolve("esm/vloop/dynamic", 52000) is None
+    assert mappings.resolve("xdc/ai/cpu1/rogext_TF", 40300) is None

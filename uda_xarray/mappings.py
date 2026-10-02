@@ -6,7 +6,15 @@ import importlib.resources
 import json
 from typing import Iterator
 
-from pydantic import BaseModel
+from pydantic import BaseModel, PrivateAttr
+
+
+def _normalise(name: str) -> str:
+    """Return *name* without a leading slash and in upper case.
+
+    UDA matches signal names without regard to case, and with or without the leading slash.
+    """
+    return name.lstrip("/").upper()
 
 
 class SignalRange(BaseModel):
@@ -31,6 +39,7 @@ class SignalMappings(BaseModel):
     """
 
     mappings: dict[str, list[SignalRange]]
+    _index: dict[str, list[SignalRange]] | None = PrivateAttr(default=None)
 
     @classmethod
     def from_file(cls, path: str | None = None) -> "SignalMappings":
@@ -63,13 +72,22 @@ class SignalMappings(BaseModel):
         Returns *None* if *signal* is not in the mapping or no range covers
         the shot.
         """
-        ranges = self.mappings.get(signal)
+        ranges = self._normalised().get(_normalise(signal))
         if ranges is None:
             return None
         for r in ranges:
             if r.contains(shot):
                 return r.name
         return None
+
+    def _normalised(self) -> dict[str, list[SignalRange]]:
+        """Return the mappings keyed by normalised signal name (built once)."""
+        if self._index is None:
+            index: dict[str, list[SignalRange]] = {}
+            for key, ranges in self.mappings.items():
+                index.setdefault(_normalise(key), []).extend(ranges)
+            self._index = index
+        return self._index
 
     def __iter__(self) -> Iterator[tuple[str, list[SignalRange]]]:
         return iter(self.mappings.items())

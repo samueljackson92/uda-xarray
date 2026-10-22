@@ -288,7 +288,7 @@ def test_open_datatree_video(mocker):
     assert ds.sizes["time"] == 3
 
 
-@pytest.mark.skip(reason="Requires access to real UDA server with video data")
+@pytest.mark.live
 def test_open_uda_dataset_video_frame():
     """Test loading a single video frame from a real UDA server."""
     ds = xr.open_dataset(
@@ -300,14 +300,14 @@ def test_open_uda_dataset_video_frame():
     assert ds.sizes["time"] == 1
 
 
-@pytest.mark.skip(reason="Requires access to real UDA server with video data")
+@pytest.mark.live
 def test_real_data_2d():
     """Test loading real 2D data from a live UDA server."""
     ds = xr.open_dataset("uda://AYE_TE:30421", engine="uda")
     assert ds["data"].name == "data"
-    assert ds["data"].dims == ("time", "radial_index")
+    assert ds["data"].dims == ("time", "radial index")
     assert "time" in ds.coords
-    assert "radial_index" in ds.coords
+    assert "radial index" in ds.coords
 
 
 def test_remapped_signal_uses_legacy_name(mocker):

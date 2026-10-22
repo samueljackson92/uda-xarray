@@ -1,19 +1,13 @@
 """Live tests for the MAST-U signal mappings in ``mastu.json``.
 
-These tests read real data, so they need a UDA server. They are skipped when the server
-cannot be reached (for example on CI). Run them from a machine with UDA access.
+These tests read real data, so they need a UDA server. ``conftest.py`` skips them when the
+server cannot be reached (for example on CI). Run them from a machine with UDA access.
 """
-
-import os
-import socket
 
 import pytest
 import xarray as xr
 
 from uda_xarray.mappings import SignalMappings
-
-UDA_HOST = os.environ.get("UDA_HOST", "uda2.mast.l")
-UDA_PORT = int(os.environ.get("UDA_PORT", "56565"))
 
 # Renamed signals. The key is the current name. A shot with the current name needs no mapping.
 RENAMED = (
@@ -32,17 +26,7 @@ CURRENT_NAME_SHOTS = (47000, 52002)
 SAMPLES_PER_SIGNAL = 5
 
 
-def _uda_reachable() -> bool:
-    try:
-        with socket.create_connection((UDA_HOST, UDA_PORT), timeout=2):
-            return True
-    except OSError:
-        return False
-
-
-pytestmark = pytest.mark.skipif(
-    not _uda_reachable(), reason=f"UDA server {UDA_HOST}:{UDA_PORT} is not reachable"
-)
+pytestmark = pytest.mark.live
 
 MAPPINGS = SignalMappings.from_file()
 

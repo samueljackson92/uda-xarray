@@ -3,7 +3,7 @@ name = "uda-xarray"
 version = "0.3.0"
 description = "UDA backend for xarray"
 readme = "README.md"
-requires-python = ">=3.9, <3.13"
+requires-python = ">=3.9"
 authors = [
     {name = "Samuel Jackson", email = "samuel.jackson@ukaea.uk"},
 ]
@@ -16,6 +16,8 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "License :: OSI Approved :: MIT License",
 ]
 

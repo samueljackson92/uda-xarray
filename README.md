@@ -49,6 +49,15 @@ signal_name = ds["data"].attrs["uda_name"]
 
 The URI format is: `uda://<signal_name>:<shot_number>`
 
+UDA serves the latest pass of a signal. To read a particular pass, add it after the shot number:
+
+```python
+# Pass 0 of an EFIT signal for MAST shot 24779
+ds = xr.open_dataset("uda://EFM_BVAC_VAL:24779/0", engine="uda")
+```
+
+Each server's metadata catalogue decides what a pass means, so the server must report the pass it read. If it reports another pass, or none, opening the dataset fails. Images are read without a pass.
+
 ## Data Structure
 
 When you open a UDA dataset, uda-xarray creates an xarray Dataset with:
@@ -57,6 +66,16 @@ When you open a UDA dataset, uda-xarray creates an xarray Dataset with:
 - **error**: The error data as a DataArray
 - **time**: Time coordinates (dimension)
 - **attrs**: Metadata including units and UDA signal name
+
+For signals, `data` also records where UDA read the signal from, when the server reports it:
+
+- `uda_path`: the path of the file (MAST-U)
+- `uda_filename`: the name of the file (MAST)
+- `uda_format`: the file format, such as `IDA3` or `NETCDF`
+- `uda_pass`: the pass the signal came from; absent for files without a pass, such as raw data
+- `uda_pass_date`: the date of that pass (MAST)
+
+Servers that don't report these add none of them.
 
 ## Requirements
 

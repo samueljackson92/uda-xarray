@@ -1,6 +1,6 @@
 """Tests for the UDA xarray backend."""
 
-from unittest.mock import Mock
+from unittest.mock import Mock, call
 
 import numpy as np
 import pyuda
@@ -13,7 +13,7 @@ from uda_xarray.mappings import SignalMappings, SignalRange
 def test_open_uda_dataset(mocker):
     """Test loading a 1D UDA signal as an xarray Dataset."""
     # Create mock signal object
-    mock_signal = Mock()
+    mock_signal = Mock(spec=pyuda.Signal)
     mock_signal.data = np.array([1.0, 2.0, 3.0])
     mock_signal.shape = (3,)
     dim1 = Mock(label="time")
@@ -39,7 +39,7 @@ def test_open_uda_dataset(mocker):
     ds = xr.open_dataset("uda://ip:30421", engine="uda")
 
     # Verify the client was called correctly
-    mock_client.get.assert_called_once_with("ip", 30421)
+    mock_client.get.assert_called_once_with("ip", "30421")
 
     assert ds["data"].name == "data"
     assert ds["data"].dims == ("time",)
@@ -53,7 +53,7 @@ def test_open_uda_dataset(mocker):
 def test_open_uda_dataset_2d(mocker):
     """Test loading a 2D UDA signal as an xarray Dataset."""
     # Create mock 2D signal object
-    mock_signal = Mock()
+    mock_signal = Mock(spec=pyuda.Signal)
     mock_signal.data = np.array([[1.0, 2.0], [3.0, 4.0]])
     mock_signal.shape = (2, 2)
     dim1 = Mock(label="time")
@@ -79,7 +79,7 @@ def test_open_uda_dataset_2d(mocker):
 
     ds = xr.open_dataset("uda://AYE_TE:30421", engine="uda")
 
-    mock_client.get.assert_called_once_with("AYE_TE", 30421)
+    mock_client.get.assert_called_once_with("AYE_TE", "30421")
 
     assert ds["data"].name == "data"
     assert ds["data"].dims == ("time", "channel")
@@ -164,7 +164,7 @@ def test_open_uda_dataset_invalid_format():
 def test_open_datatree(mocker):
     """Test loading a 1D UDA signal as an xarray DataTree."""
     # Create mock signal object
-    mock_signal = Mock()
+    mock_signal = Mock(spec=pyuda.Signal)
     mock_signal.data = np.array([1.0, 2.0, 3.0])
     mock_signal.shape = (3,)
     dim1 = Mock(label="time")
@@ -190,7 +190,7 @@ def test_open_datatree(mocker):
     dt = xr.open_datatree("uda://ip:30421", engine="uda")
 
     # Verify the client was called correctly
-    mock_client.get.assert_called_once_with("ip", 30421)
+    mock_client.get.assert_called_once_with("ip", "30421")
 
     # Verify it's a DataTree object
     assert isinstance(dt, xr.DataTree)
@@ -208,7 +208,7 @@ def test_open_datatree(mocker):
 def test_open_datatree_2d(mocker):
     """Test loading a 2D UDA signal as an xarray DataTree."""
     # Create mock 2D signal object
-    mock_signal = Mock()
+    mock_signal = Mock(spec=pyuda.Signal)
     mock_signal.data = np.array([[1.0, 2.0], [3.0, 4.0]])
     mock_signal.shape = (2, 2)
     dim1 = Mock(label="time")
@@ -234,7 +234,7 @@ def test_open_datatree_2d(mocker):
 
     dt = xr.open_datatree("uda://AYE_TE:30421", engine="uda")
 
-    mock_client.get.assert_called_once_with("AYE_TE", 30421)
+    mock_client.get.assert_called_once_with("AYE_TE", "30421")
 
     # Verify it's a DataTree object
     assert isinstance(dt, xr.DataTree)
@@ -327,7 +327,7 @@ def test_remapped_signal_uses_legacy_name(mocker):
     )
     mocker.patch("uda_xarray.main._MAPPINGS", fake_mappings)
 
-    mock_signal = Mock()
+    mock_signal = Mock(spec=pyuda.Signal)
     mock_signal.data = np.array([1.0, 2.0, 3.0])
     mock_signal.shape = (3,)
     dim1 = Mock(label="time")
@@ -348,7 +348,7 @@ def test_remapped_signal_uses_legacy_name(mocker):
     # Shot 15000 is in the legacy range -> should call client with "ATM_TE"
     ds = xr.open_dataset("uda://AYC_TE:15000", engine="uda")
 
-    mock_client.get.assert_called_once_with("ATM_TE", 15000)
+    mock_client.get.assert_called_once_with("ATM_TE", "15000")
     assert ds["data"].attrs["uda_name"] == "ATM_TE"
 
 
@@ -366,7 +366,7 @@ def test_remapped_signal_uses_modern_name(mocker):
     )
     mocker.patch("uda_xarray.main._MAPPINGS", fake_mappings)
 
-    mock_signal = Mock()
+    mock_signal = Mock(spec=pyuda.Signal)
     mock_signal.data = np.array([1.0, 2.0, 3.0])
     mock_signal.shape = (3,)
     dim1 = Mock(label="time")
@@ -387,7 +387,7 @@ def test_remapped_signal_uses_modern_name(mocker):
     # Shot 30000 is in the modern range -> should call client with "AYC_TE"
     ds = xr.open_dataset("uda://AYC_TE:30000", engine="uda")
 
-    mock_client.get.assert_called_once_with("AYC_TE", 30000)
+    mock_client.get.assert_called_once_with("AYC_TE", "30000")
     assert ds["data"].attrs["uda_name"] == "AYC_TE"
 
 
@@ -411,7 +411,7 @@ def test_mastu_hcam_remapped_to_sanx_name(mocker):
     )
     mocker.patch("uda_xarray.main._MAPPINGS", fake_mappings)
 
-    mock_signal = Mock()
+    mock_signal = Mock(spec=pyuda.Signal)
     mock_signal.data = np.array([1.0, 2.0, 3.0])
     mock_signal.shape = (3,)
     dim1 = Mock(label="time")
@@ -432,7 +432,7 @@ def test_mastu_hcam_remapped_to_sanx_name(mocker):
     # Shot 47000 falls in the SAnx05 range -> should call client with ch14 path
     ds = xr.open_dataset("uda:///XSX/HCAM/L/CH01/DATA:47000", engine="uda")
 
-    mock_client.get.assert_called_once_with("/xsx/SAnx05-01/ch14", 47000)
+    mock_client.get.assert_called_once_with("/xsx/SAnx05-01/ch14", "47000")
     assert ds["data"].attrs["uda_name"] == "/xsx/SAnx05-01/ch14"
 
 
@@ -454,7 +454,7 @@ def test_mastu_hcam_modern_name_passthrough(mocker):
     )
     mocker.patch("uda_xarray.main._MAPPINGS", fake_mappings)
 
-    mock_signal = Mock()
+    mock_signal = Mock(spec=pyuda.Signal)
     mock_signal.data = np.array([1.0, 2.0, 3.0])
     mock_signal.shape = (3,)
     dim1 = Mock(label="time")
@@ -475,7 +475,7 @@ def test_mastu_hcam_modern_name_passthrough(mocker):
     # Shot 50000 is in the most-recent range -> canonical name used as-is
     ds = xr.open_dataset("uda:///XSX/HCAM/L/CH01/DATA:50000", engine="uda")
 
-    mock_client.get.assert_called_once_with("/XSX/HCAM/L/CH01/DATA", 50000)
+    mock_client.get.assert_called_once_with("/XSX/HCAM/L/CH01/DATA", "50000")
     assert ds["data"].attrs["uda_name"] == "/XSX/HCAM/L/CH01/DATA"
 
 
@@ -485,7 +485,7 @@ def test_unmapped_signal_passes_through(mocker):
     fake_mappings = SignalMappings(mappings={})
     mocker.patch("uda_xarray.main._MAPPINGS", fake_mappings)
 
-    mock_signal = Mock()
+    mock_signal = Mock(spec=pyuda.Signal)
     mock_signal.data = np.array([1.0, 2.0])
     mock_signal.shape = (2,)
     dim1 = Mock(label="time")
@@ -505,7 +505,7 @@ def test_unmapped_signal_passes_through(mocker):
 
     ds = xr.open_dataset("uda://SOME_UNKNOWN_SIGNAL:30421", engine="uda")
 
-    mock_client.get.assert_called_once_with("SOME_UNKNOWN_SIGNAL", 30421)
+    mock_client.get.assert_called_once_with("SOME_UNKNOWN_SIGNAL", "30421")
     assert ds["data"].attrs["uda_name"] == "SOME_UNKNOWN_SIGNAL"
 
 
@@ -532,3 +532,201 @@ def test_bundled_mastu_renames():
     assert mappings.resolve("esm/vloop/dynamic", 43478) is None
     assert mappings.resolve("esm/vloop/dynamic", 52000) is None
     assert mappings.resolve("xdc/ai/cpu1/rogext_TF", 40300) is None
+
+
+def _signal_with_meta(meta):
+    """A 1D mock signal whose ``meta`` is what pyuda hands back with get_meta set."""
+    signal = Mock(spec=pyuda.Signal)
+    signal.data = np.array([1.0, 2.0, 3.0])
+    signal.dims = [Mock(label="time", data=np.array([0.0, 1.0, 2.0]))]
+    signal.units = "T"
+    signal.time = Mock(label="time", data=np.array([0.0, 1.0, 2.0]))
+    signal.errors = Mock(data=np.array([0.0, 0.0, 0.0]))
+    signal.meta = meta
+    return signal
+
+
+def _open_signal(mocker, url, meta):
+    """Open ``url`` against a mock client returning a signal with ``meta``."""
+    client = Mock()
+    client.get.return_value = _signal_with_meta(meta)
+    client.get_property.return_value = False
+    mocker.patch("pyuda.Client", return_value=client)
+    mocker.patch(
+        "uda_xarray.main.UDABackendEntrypoint._get_signal_type",
+        return_value="Signal",
+    )
+    return xr.open_dataset(url, engine="uda"), client
+
+
+def test_mast_signal_records_file_and_pass(mocker):
+    """A MAST server reports the file name, format, pass and pass date."""
+    meta = {
+        "signal_name": "EFM_BVAC_VAL",
+        "signal_alias": "EFM_BVAC_VAL",
+        "path": "",
+        "filename": "efm0247.79",
+        "format": "IDA3",
+        "exp_number": 24779,
+        "pass": 1,
+        "pass_date": "2010-07-15",
+    }
+    ds, _ = _open_signal(mocker, "uda://EFM_BVAC_VAL:24779", meta)
+
+    attrs = ds["data"].attrs
+    assert attrs["uda_filename"] == "efm0247.79"
+    assert attrs["uda_format"] == "IDA3"
+    assert attrs["uda_pass"] == 1
+    assert attrs["uda_pass_date"] == "2010-07-15"
+    assert "uda_path" not in attrs
+
+
+def test_mastu_signal_records_path_and_pass(mocker):
+    """A MAST-U server reports the full path and the pass, as bytes, and leaves the
+    file name and pass date empty."""
+    meta = {
+        "signal_name": b"/AMC/PLASMA_CURRENT",
+        "signal_alias": b"",
+        "path": b"/net/raidsrvr/data/MAST_Data/49000/LATEST/amc049000.nc",
+        "filename": b"",
+        "format": b"NETCDF",
+        "exp_number": 49000,
+        "pass": 4,
+        "pass_date": b"",
+    }
+    ds, _ = _open_signal(mocker, "uda:///AMC/PLASMA_CURRENT:49000", meta)
+
+    attrs = ds["data"].attrs
+    assert attrs["uda_path"] == "/net/raidsrvr/data/MAST_Data/49000/LATEST/amc049000.nc"
+    assert attrs["uda_format"] == "NETCDF"
+    assert attrs["uda_pass"] == 4
+    assert "uda_filename" not in attrs
+    assert "uda_pass_date" not in attrs
+
+
+def test_raw_signal_records_no_pass(mocker):
+    """A raw file has pass -1, which means no pass, so neither the pass nor its date
+    is recorded."""
+    meta = {
+        "path": "",
+        "filename": "xma0247.79",
+        "format": "IDA3",
+        "pass": -1,
+        "pass_date": "2010-03-16",
+    }
+    ds, _ = _open_signal(mocker, "uda://XMA_CCBV01:24779", meta)
+
+    attrs = ds["data"].attrs
+    assert attrs["uda_filename"] == "xma0247.79"
+    assert "uda_pass" not in attrs
+    assert "uda_pass_date" not in attrs
+
+
+def test_server_reporting_no_file_or_pass_adds_no_attributes(mocker):
+    """A server that reports no file or pass leaves the attributes as before."""
+    ds, _ = _open_signal(mocker, "uda://ip:30421", {})
+
+    assert set(ds["data"].attrs) == {"units", "uda_name"}
+
+
+def test_pass_in_url_is_requested(mocker):
+    """A pass after the shot number is sent to UDA as ``shot/pass``."""
+    ds, client = _open_signal(mocker, "uda://EFM_BVAC_VAL:24779/0", {"pass": 0})
+
+    client.get.assert_called_once_with("EFM_BVAC_VAL", "24779/0")
+    assert ds["data"].attrs["uda_pass"] == 0
+
+
+def test_another_pass_from_the_server_is_refused(mocker):
+    """A server whose catalogue ignores the pass would return another one, so a
+    reported pass that differs from the one asked for is an error."""
+    with pytest.raises(
+        RuntimeError, match="asked for pass 0, but the server returned pass 1"
+    ):
+        _open_signal(mocker, "uda://EFM_BVAC_VAL:24779/0", {"pass": 1})
+
+
+def test_no_pass_from_the_server_is_refused(mocker):
+    """A server that reports no pass can't show it read the one asked for."""
+    with pytest.raises(
+        RuntimeError, match="asked for pass 0, but the server returned no pass"
+    ):
+        _open_signal(mocker, "uda://EFM_BVAC_VAL:24779/0", {})
+
+
+def test_get_meta_is_put_back(mocker):
+    """get_meta is set for the request and then put back as it was."""
+    _, client = _open_signal(mocker, "uda://ip:30421", {})
+
+    assert client.set_property.call_args_list == [
+        call("get_meta", True),
+        call("get_meta", False),
+    ]
+
+
+def test_get_meta_is_put_back_when_the_request_fails(mocker):
+    """get_meta is put back even when UDA refuses the request."""
+    client = Mock()
+    client.get.side_effect = pyuda.ServerException("Signal not found")
+    client.get_property.return_value = False
+    mocker.patch("pyuda.Client", return_value=client)
+    mocker.patch(
+        "uda_xarray.main.UDABackendEntrypoint._get_signal_type",
+        return_value="Signal",
+    )
+
+    with pytest.raises(RuntimeError):
+        xr.open_dataset("uda://invalid_signal:99999", engine="uda")
+
+    assert client.set_property.call_args_list[-1] == call("get_meta", False)
+
+
+def test_anything_but_a_signal_is_refused(mocker):
+    """client.get can return a Video, StructuredData, String or Tree, which can't be
+    read as a signal."""
+    client = Mock()
+    client.get.return_value = Mock(spec=pyuda.StructuredData)
+    mocker.patch("pyuda.Client", return_value=client)
+    mocker.patch(
+        "uda_xarray.main.UDABackendEntrypoint._get_signal_type",
+        return_value="Signal",
+    )
+
+    with pytest.raises(RuntimeError, match="not a signal"):
+        xr.open_dataset("uda://ip:30421", engine="uda")
+
+
+def test_pass_for_image_is_refused(mocker):
+    """Images are read without a pass, so asking for one is an error."""
+    client = Mock()
+    mocker.patch("pyuda.Client", return_value=client)
+    mocker.patch(
+        "uda_xarray.main.UDABackendEntrypoint._get_signal_type",
+        return_value="Image",
+    )
+
+    with pytest.raises(ValueError, match="a pass can only be given for signals"):
+        xr.open_dataset("uda://rba:30421/0", engine="uda")
+
+    client.get_images.assert_not_called()
+
+
+@pytest.mark.live
+def test_real_mast_passes():
+    """MAST shot 24779 has two passes of EFM_BVAC_VAL, both in the same file name."""
+    latest = xr.open_dataset("uda://EFM_BVAC_VAL:24779", engine="uda")
+    first = xr.open_dataset("uda://EFM_BVAC_VAL:24779/0", engine="uda")
+
+    assert latest["data"].attrs["uda_pass"] == 1
+    assert first["data"].attrs["uda_pass"] == 0
+    assert first["data"].attrs["uda_filename"] == "efm0247.79"
+    assert first["data"].attrs["uda_pass_date"] == "2010-03-16"
+
+
+@pytest.mark.live
+def test_real_mastu_pass():
+    """A MAST-U pass is reported with the path of that pass's file."""
+    ds = xr.open_dataset("uda:///AMC/PLASMA_CURRENT:49000/0", engine="uda")
+
+    assert ds["data"].attrs["uda_pass"] == 0
+    assert ds["data"].attrs["uda_path"].endswith("/49000/Pass0/amc049000.nc")
